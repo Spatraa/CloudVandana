@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function bubbleSortDescending(arr) {
+    const len = arr.length;
+
+    for (let i = 0; i < len - 1; i++) {
+        for (let j = 0; j < len - 1 - i; j++) {
+            if (arr[j] < arr[j + 1]) {
+                // Swap the elements
+                const temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    return arr;
+}
+
+const numbers = [5, 2, 9, 1, 5, 6];
+bubbleSortDescending(numbers);
+document.write(numbers);
+</script>
+      
+</body>
+</html>

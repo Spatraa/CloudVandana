@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        outline: none;
+    }
+    #container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .calculator {
+        border: green;
+        padding: 15px;
+        border-radius: 30px;
+        box-shadow: inset 5px 5px 12px #ffffff, 5px 5px 12px rgba(0, 0, 0, 0.16);
+        display: grid;
+        grid-template-columns: repeat(4, 68px);
+    }
+    input {
+        grid-column: span 4;
+        height: 70px;
+        width: 260px;
+        background-color: #ecf0f3;
+        box-shadow: inset -5px -5px 12px #ffffff, inset 5px 5px 12px rgba(0, 0, 0, 0.16);
+        border: none;
+        border-radius: 30px;
+        color: rgb(70, 70, 70);
+        font-size: 50px;
+        text-align: end;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+    button {
+        height: 48px;
+        width: 48px;
+        background-color: #ecf0f3;
+        box-shadow: -5px -5px 12px #ffffff, 5px 5px 12px rgba(0, 0, 0, 0.16);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 8px;
+        font-size: 16px;
+    }
+    .equal {
+        width: 115px;
+        border-radius: 40px;
+        background-color: #ecf0f3;
+        box-shadow: -5px -5px 12px #ffffff, 5px 5px 12px rgba(0, 0, 0, 0.16);
+    }
+</style>
+<body>
+    <div id="container">
+        <div class="calculator">
+            <input id="input" value="" placeholder="0">
+            <button type="button" onclick="display('9')" id="block9" value="9">9</button>
+            <button type="button" onclick="display('8')" id="block8" value="8">8</button>
+            <button type="button" onclick="display('7')" id="block7" value="7">7</button>
+            <button type="button" onclick="display('+')" id="plus" value="+">+</button>
+            <button type="button" onclick="display('4')" id="block4" value="4">4</button>
+            <button type="button" onclick="display('5')" id="block5" value="5">5</button>
+            <button type="button" onclick="display('6')" id="block6" value="6">6</button>
+            <button type="button" onclick="display('-')" id="minus" value="-">-</button>
+            <button type="button" onclick="display('1')" id="block1" value="">1</button>
+            <button type="button" onclick="display('2')" id="block2" value="2">2</button>
+            <button type="button" onclick="display('3')" id="block3" value="3">3</button>
+            <button type="button" onclick="display('/')" id="divide" value="/">/</button>
+            <button type="button" onclick="display('.')" id="dot" value=".">.</button>
+            <button type="button" onclick="display('0')" id="block0" value="0">0</button>
+            <button type="button" onclick="clearInput()" id="clear">C</button>
+            <button type="button" onclick="del()" id="clr">DEL</button>
+            <button type="button" onclick="display('*')" id="multiply" value="*">*</button>
+            <button type="button" onclick="calculate()" id="ans">=</button>
+            <button type="button" onclick="display('%')" value="%">%</button>
+        </div>
+    </div>
+</body>
+<script>
+    let input = document.getElementById('input');
+
+    function display(num) {
+        input.value += num;
+    }
+
+    function calculate() {
+        try {
+            input.value = eval(input.value);
+        } catch (err) {
+            alert("Invalid input");
+        }
+    }
+
+    function clearInput() {
+        input.value = "";
+    }
+
+    function del() {
+        input.value = input.value.slice(0, -1);
+    }
+</script>
+</html>
